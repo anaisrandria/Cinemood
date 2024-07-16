@@ -8,7 +8,7 @@
 //         document.body.appendChild(adviceElement);
 //     });
 
-let button = document.getElementsByClassName('button-mood');
+let button = document.getElementById('button');
 let image = document.getElementById('image');
 let filmId = document.getElementById('filmid');
 let filmTitle = document.getElementById('title');
@@ -17,6 +17,9 @@ let filmTitle = document.getElementById('title');
 const changeFilm = async () => {
     //let randomNumber = Math.ceil(Math.random() * 1000) + 1;
     //let requestString = `https://pokeapi.co/api/v2/pokemon/${randomNumber}`;
+    let mod = window.location.search.replace("?", "");
+    console.log(mod);
+    
     let id_film =   101;
     let requestString = `https://api.themoviedb.org/3/movie/${id_film}?language=en-US`;
 
