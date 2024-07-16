@@ -1,68 +1,32 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
 body {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: sans-serif;
-    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url("https://img.freepik.com/free-vector/vibrant-summer-ombre-background-vector_53876-105765.jpg?w=900&t=st=1721123938~exp=1721124538~hmac=a7aa9e8793b1e3c5bbef2b58c05fc964b404b08a23335ad85a00ae285a7e50ca");
+    background-size: cover;
 }
 
-#wrapper {
+header {
+    margin-top: 250px;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
-    background-color: white;
-    border-radius: 20px;
-    padding: 40px;
-    width: 60%;
-    max-width: 500px;
-}
+    line-height: 5px;
+} 
 
-#image-wrapper {
-    width: 300px;
-}
-
-#image {
-    width: 100%;
-}
-
-#header {
-    padding: 20px;
+main {
+    margin-top: 30px;
+    max-width: 100%;
     display: flex;
-    font-size: 30px;
-}
+    justify-content: space-around;
+    align-items: center;
+} 
 
-#number {
-    margin-right: 15px;
-}
-
-#name {
-    text-transform: capitalize;
-}
-
-#button {
-    background-color: #ff7a22;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    padding: 10px 30px;
+.button-mood {
+    background-color: bisque;
+    border: 1px solid grey;
+    border-radius: 20px;
     cursor: pointer;
-    transition: all 0.2s ease;
-}
-
-#button:hover {
-    transform: translateY(-2px);
-    background-color: #ff8839;
-}
-
-#button:active {
-    transform: translateY(2px);
-    background-color: #ff7a22;
+    padding: 0.5rem 1.6rem;
+    font-size: 2rem;
+    margin: 10px;
 }

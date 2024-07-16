@@ -1,25 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Document</title>
+    <script src="script.js" defer></script>
+    <script src="random-names.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Cinemood</title>
 </head>
-
 <body>
-    <div id="wrapper">
-        <div id="image-wrapper">
-            <img src="" alt="" id="image">
+    <header>
+        <h1 id="randomname">Hello {randomName},</h1>
+        <h2>What's your mood today?</h2>
+    </header>
+    
+    <main>
+        <div id="button-list">
+            <button class="button-mood" alt="happy">☀️</button>
+            <button class="button-mood" alt="sad">🌧️</button>
+            <button class="button-mood" alt="">🧸</button>
+            <button class="button-mood" alt="action mood">⚔️</button>
+            <button class="button-mood" alt="detective mood">🕵️‍♀️</button>
+            <button class="button-mood" alt="+18 😏">🍆</button>
         </div>
-        <div id="header">
-            <div id="number"></div>
-            <div id="name"></div>
-        </div>
-        <div id="button">Get a new Pokemon</div>
-    </div>
-    <script src="script.js"></script>
-</body>
+    </main>
 
+</body>
 </html>
