@@ -6,7 +6,7 @@ function getRandomName() {
 }
 
 function displayRandomName() {
-    document.getElementById('randomname').textContent = `Hello ${getRandomName()}!`;
+    document.getElementById('randomname').innerHTML = `Hello <span><em>${getRandomName()}</em></span>!`;
 }
 
 displayRandomName()
