@@ -8,16 +8,16 @@
 //         document.body.appendChild(adviceElement);
 //     });
 
-let button = document.getElementById('button');
+let button = document.getElementsByClassName('button-mood');
 let image = document.getElementById('image');
-let pokeNumber = document.getElementById('number');
-let pokeName = document.getElementById('name');
+let filmId = document.getElementById('filmid');
+let filmTitle = document.getElementById('title');
 
 
 const changeFilm = async () => {
     //let randomNumber = Math.ceil(Math.random() * 1000) + 1;
     //let requestString = `https://pokeapi.co/api/v2/pokemon/${randomNumber}`;
-    let id_film = 19;
+    let id_film =   101;
     let requestString = `https://api.themoviedb.org/3/movie/${id_film}?language=en-US`;
 
     const options = {
@@ -34,8 +34,8 @@ const changeFilm = async () => {
     console.log(response);
 
     image.src = `https://image.tmdb.org/t/p/w500/${response.poster_path}`;
-    pokeNumber.textContent = `#${response.id}`;
-    pokeName.textContent = response.original_title;
+    filmId.textContent = `#${response.id}`;
+    filmTitle.textContent = response.original_title;
 }
 changeFilm()
 button.addEventListener('click', changeFilm);

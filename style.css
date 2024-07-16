@@ -1,7 +1,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    background-image: url("https://img.freepik.com/free-vector/vibrant-summer-ombre-background-vector_53876-105765.jpg?w=900&t=st=1721123938~exp=1721124538~hmac=a7aa9e8793b1e3c5bbef2b58c05fc964b404b08a23335ad85a00ae285a7e50ca");
-    background-size: cover;
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
 }
 
 header {
@@ -19,6 +18,7 @@ h1 span {
 
 main {
     margin-top: 30px;
+    margin-bottom: 350px;
     max-width: 100%;
     display: flex;
     justify-content: space-around;
