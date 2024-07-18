@@ -15,7 +15,7 @@ let filmTitle = document.getElementById('title');
 let moodObject = {
   "happy": [80, 99, 18, 36, 10770, 53, 10752, 37],
   "sad": [28, 80, 99, 10751, 14, 36, 27, 10402, 9648, 10770, 53, 10752, 37],
-  "goofy": [80, 99, 18, 36, 10402, 9648, 10749, 878, 10770, 53, 10752, 37],
+  "goofy": [28, 80, 99, 18, 36, 27, 10402, 9648, 10749, 878, 10770, 53, 10752, 37],
   "in-love": [28, 80, 99, 18, 10751, 36, 27, 9648, 10770, 53, 10752, 37],
   "nerdy": [16, 35, 18, 10751, 27, 10402, 10749, 10770, 10752, 37],
   "angry": [16, 14, 36, 27, 10402, 9648, 10749, 878, 10770],
@@ -59,13 +59,13 @@ const FilmDataListByMood = async (pagenbr) => {
   let without_genres = ''
   /* tabe_genres = [28,16,35,10751,14]
   with_genres = `&with_genres=${tabe_genres.join("%2C")}` */
-  let requestString = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
+  let requestString = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc&vote_average.gte=5&vote_count.gte=200&watch_region=FR&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy';
   console.log(mood in moodObject);
   if (mood in moodObject) {
     tabe_genres = moodObject[mood]
     //with_genres = `&with_genres=${tabe_genres.join("%2C")}`
     without_genres = `&without_genres=${tabe_genres.join("%2C")}`
-    requestString = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pagenbr}&sort_by=popularity.desc${with_genres}${without_genres}`;
+    requestString = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pagenbr}&sort_by=popularity.desc&vote_average.gte=5&vote_count.gte=200&watch_region=FR&with_watch_monetization_types=flatrate%7Cfree%7Cads%7Crent%7Cbuy${with_genres}${without_genres}`;
   }
   //without_genres = `&without_genres=${tabe_genres.join("%2C")}`
 
@@ -90,7 +90,7 @@ const getRandomFilm = async () => {
   console.log(responseNbPage);
   console.log(responseNbPage.total_pages);
   if (responseNbPage.total_pages > 500) {
-    randnbr = Math.floor(Math.random() * 500) + 1;
+    randnbr = Math.floor(Math.random() * 499) + 1;
   }
   else {
     randnbr = Math.floor(Math.random() * responseNbPage.total_pages) + 1;
