@@ -12,6 +12,13 @@ let button = document.getElementById('button');
 let image = document.getElementById('image');
 let filmId = document.getElementById('filmid');
 let filmTitle = document.getElementById('title');
+let moodObject = {"happy": [28,16,35,10751,14],
+                  "sad" : [28,16,35,10751,14],
+                  "comfy" : [28,16,35,10751,14],
+                  "action" : [28,16,35,10751,14],
+                  "detective" : [28,16,35,10751,14],
+                  "adult" : [28,16,35,10751,14]
+                }
 
 
 const changeFilm = async () => {
@@ -51,10 +58,10 @@ const FilmDataListByMood = async (pagenbr) => {
   /* tabe_genres = [28,16,35,10751,14]
   with_genres = `&with_genres=${tabe_genres.join("%2C")}` */
   let requestString ='https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
-  console.log(mood == "comfy");
-  if (mood == "comfy")
+  console.log(mood in moodObject);
+  if (mood in moodObject)
   {
-    tabe_genres = [28,16,35,10751,14]
+    tabe_genres = moodObject[mood]
     with_genres = `&with_genres=${tabe_genres.join("%2C")}`
     requestString = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pagenbr}&sort_by=popularity.desc${with_genres}${without_genres}`;
   }
