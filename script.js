@@ -47,7 +47,7 @@ const changeFilm = async () => {
 
   image.src = `https://image.tmdb.org/t/p/w500/${response.poster_path}`;
   filmId.textContent = `#${response.id}`;
-  filmTitle.textContent = response.original_title;
+  filmTitle.textContent = response.title;
 }
 
 const FilmDataListByMood = async (pagenbr) => {
@@ -85,10 +85,16 @@ const FilmDataListByMood = async (pagenbr) => {
 }
 
 const getRandomFilm = async () => {
+  let randnbr = 101;
   let responseNbPage = await FilmDataListByMood(1);
   console.log(responseNbPage);
   console.log(responseNbPage.total_pages);
-  let randnbr = Math.floor(Math.random() * responseNbPage.total_pages) + 1;
+  if (responseNbPage.total_pages > 500) {
+    randnbr = Math.floor(Math.random() * 500) + 1;
+  }
+  else {
+    randnbr = Math.floor(Math.random() * responseNbPage.total_pages) + 1;
+  }
   /* console.log(randnbr); */
   let responseListPage = await FilmDataListByMood(randnbr);
   let randnbrFilm = Math.floor(Math.random() * responseListPage.results.length);
