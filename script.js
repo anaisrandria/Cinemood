@@ -15,7 +15,7 @@ let filmTitle = document.getElementById('title');
 let moodObject = {
   "happy": [80, 99, 18, 36, 10770, 53, 10752, 37],
   "sad": [28, 80, 99, 10751, 14, 36, 27, 10402, 9648, 10770, 53, 10752, 37],
-  "goofy": [80, 99, 18, 36, 10402, 9648, 10749, 878, 10770, 53, 10752, 37], // prevenir changement de nom
+  "goofy": [80, 99, 18, 36, 10402, 9648, 10749, 878, 10770, 53, 10752, 37],
   "in-love": [28, 80, 99, 18, 10751, 36, 27, 9648, 10770, 53, 10752, 37],
   "nerdy": [16, 35, 18, 10751, 27, 10402, 10749, 10770, 10752, 37],
   "angry": [16, 14, 36, 27, 10402, 9648, 10749, 878, 10770],
@@ -26,7 +26,7 @@ let moodObject = {
 const changeFilm = async () => {
   //let randomNumber = Math.ceil(Math.random() * 1000) + 1;
   //let requestString = `https://pokeapi.co/api/v2/pokemon/${randomNumber}`;
-  let mod = window.location.search.replace("?", "");
+  //let mod = window.location.search.replace("?", "");
   //console.log(mod);
 
   let id_film = await getRandomFilm();
@@ -63,7 +63,8 @@ const FilmDataListByMood = async (pagenbr) => {
   console.log(mood in moodObject);
   if (mood in moodObject) {
     tabe_genres = moodObject[mood]
-    with_genres = `&with_genres=${tabe_genres.join("%2C")}`
+    //with_genres = `&with_genres=${tabe_genres.join("%2C")}`
+    without_genres = `&without_genres=${tabe_genres.join("%2C")}`
     requestString = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${pagenbr}&sort_by=popularity.desc${with_genres}${without_genres}`;
   }
   //without_genres = `&without_genres=${tabe_genres.join("%2C")}`
@@ -87,13 +88,13 @@ const getRandomFilm = async () => {
   let responseNbPage = await FilmDataListByMood(1);
   console.log(responseNbPage);
   console.log(responseNbPage.total_pages);
-  randnbr = Math.floor(Math.random() * responseNbPage.total_pages) + 1;
+  let randnbr = Math.floor(Math.random() * responseNbPage.total_pages) + 1;
   /* console.log(randnbr); */
   let responseListPage = await FilmDataListByMood(randnbr);
   let randnbrFilm = Math.floor(Math.random() * responseListPage.results.length);
   console.log(randnbrFilm);
   console.log(responseListPage.results[randnbrFilm]);
-  console.log(responseListPage.results[randnbrFilm].id);
+  //console.log(responseListPage.results[randnbrFilm].id);
   return (responseListPage.results[randnbrFilm].id);
 }
 

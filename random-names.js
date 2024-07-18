@@ -1,7 +1,7 @@
-const randomName = ['Monsoon Lollipop', 'Cherry Star', 'Zephyr Dancer', 'Bonnie Cuddle', 'Hazel Dancer', 'Crystal Cinnamon', 'Autumn Cinnamon', 'Midnight Lotus', 'Sunshine Afternoon', 'Mistral Aura', 'Twilight Music', 'Misty Bluegrass', 'Walnut Burst', 'Sherbet Forest', 'Snow Muffin', 'Fizzy Twilight', 'Crescent Fruit', 'Sunbeam Bluegrass', 'Cloudy Ember', 'Velvet Stripes']
+const randomName = ['Beautiful', 'Master', 'Super Loutre', 'Sunshine', 'Nono', 'Cuty Pie', 'Super Castor', 'Butter Cup', 'Handsome', 'Muffin', 'Pumpkin', 'Cupcake', 'Little Schtroumpf', 'Little One', 'to the Stongest', 'Petite Chose Mignonne', 'You']
 
 function getRandomName() {
-    return randomName[Math.ceil(Math.random() * randomName.length)];
+    return randomName[Math.floor(Math.random() * randomName.length)];
 
 }
 
