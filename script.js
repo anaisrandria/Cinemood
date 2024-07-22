@@ -54,7 +54,7 @@ const changeFilm = async () => {
   //filmId.textContent = `#${response.id}`;
   filmTitle.innerHTML = `<b>${response.title}</b> (${response.release_date.substr(0, 4)})`;
   filmDuration.innerHTML = `<b>Durée</b> (en min) : ${response.runtime}`;
-  filmSynopsis.innerHTML = `<b>Synopsis</b> : ${response.overview}`
+  filmSynopsis.innerHTML = `<b>Synopsis</b> (EN) : ${response.overview}`
 
   buttonLink.href = `https://www.themoviedb.org/movie/${response.id}/watch`;
 
