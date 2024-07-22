@@ -12,6 +12,8 @@ let button = document.getElementById('button');
 let image = document.getElementById('image');
 let filmId = document.getElementById('filmid');
 let filmTitle = document.getElementById('title');
+let buttonLink = document.getElementById('button-link');
+
 let moodObject = {
   "happy": [80, 99, 18, 36, 10770, 53, 10752, 37],
   "sad": [28, 80, 99, 10751, 14, 36, 27, 10402, 9648, 10770, 53, 10752, 37],
@@ -21,6 +23,7 @@ let moodObject = {
   "angry": [16, 14, 36, 27, 10402, 9648, 10749, 878, 10770],
   "surpise-me": [10770]
 }
+
 
 
 const changeFilm = async () => {
@@ -48,6 +51,9 @@ const changeFilm = async () => {
   image.src = `https://image.tmdb.org/t/p/w500/${response.poster_path}`;
   filmId.textContent = `#${response.id}`;
   filmTitle.textContent = response.title;
+
+  buttonLink.href = `https://www.themoviedb.org/movie/${response.id}/watch`;
+
 }
 
 const FilmDataListByMood = async (pagenbr) => {
@@ -80,6 +86,7 @@ const FilmDataListByMood = async (pagenbr) => {
   };
 
   let data = await fetch(requestString, options);
+  console.log(data)
   let response = await data.json();
   return (response);
 }
@@ -105,6 +112,7 @@ const getRandomFilm = async () => {
 }
 
 changeFilm();
+
 button.addEventListener('click', changeFilm);
 //getRandomFilm();
 
