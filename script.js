@@ -13,6 +13,12 @@ let image = document.getElementById('image');
 let filmId = document.getElementById('filmid');
 let filmTitle = document.getElementById('title');
 let buttonLink = document.getElementById('button-link');
+let filmYear = document.getElementById('year');
+let filmDuration = document.getElementById('duration');
+let filmSynopsis = document.getElementById('synopsis');
+let filmGenre = document.getElementById('genre');
+let tableauGenre = [];
+let affichageGenre = ''
 
 let moodObject = {
   "happy": [80, 99, 18, 36, 10770, 53, 10752, 37],
@@ -24,13 +30,9 @@ let moodObject = {
   "surpise-me": [10770]
 }
 
-
-
 const changeFilm = async () => {
-  //let randomNumber = Math.ceil(Math.random() * 1000) + 1;
-  //let requestString = `https://pokeapi.co/api/v2/pokemon/${randomNumber}`;
-  //let mod = window.location.search.replace("?", "");
-  //console.log(mod);
+
+  document.querySelectorAll('.genre-paragraph').forEach(el => el.remove());
 
   let id_film = await getRandomFilm();
   let requestString = `https://api.themoviedb.org/3/movie/${id_film}?language=en-US`;
@@ -49,10 +51,31 @@ const changeFilm = async () => {
   console.log(response);
 
   image.src = `https://image.tmdb.org/t/p/w500/${response.poster_path}`;
-  filmId.textContent = `#${response.id}`;
-  filmTitle.textContent = response.title;
+  //filmId.textContent = `#${response.id}`;
+  filmTitle.innerHTML = `<b>${response.title}</b> (${response.release_date.substr(0, 4)})`;
+  filmDuration.innerHTML = `<b>Durée</b> (en min) : ${response.runtime}`;
+  filmSynopsis.innerHTML = `<b>Synopsis</b> : ${response.overview}`
 
   buttonLink.href = `https://www.themoviedb.org/movie/${response.id}/watch`;
+
+  // for (let i = 0; i < response.genres.length; i++) {
+  //   tableauGenre.push(response.genres[i].name)
+  // }
+
+  // for (let i = 0; i < tableauGenre.length; i++) {
+  //   affichageGenre += `<p>${tableauGenre[i]}</p>`
+  // }
+  // filmGenre.innerHTML = affichageGenre
+
+  response.genres.forEach(genre => {
+    let genreElement = document.createElement('p');
+    genreElement.textContent = genre.name;
+    genreElement.classList.add('genre-paragraph');
+    filmGenre.appendChild(genreElement);
+  })
+
+
+
 
 }
 

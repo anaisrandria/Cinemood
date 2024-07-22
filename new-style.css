@@ -11,111 +11,73 @@ body {
     justify-content: center;
     font-family: sans-serif;
     background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
-    flex-direction: column;
 }
 
 #wrapper {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    /*flex-direction: column;*/
     background-color: white;
-    border-radius: 5px;
+    border-radius: 10px;
     padding: 10px;
     width: 100%;
-    max-width: 1000px;
-    margin-top: 20px;
-    margin-bottom: 5px;
+    max-width: 800px;
 }
 
 #image-wrapper {
     display: flex;
     width: 500px;
     justify-content: center;
-    flex-direction: column;
 }
 
 #content-wrapper {
     display: flex;
-    height: inherit;
     flex-direction: column;
-    /*width: 600px;*/
     justify-content: space-between;
+    height: 100%;
+    margin-left: 20px;
 }
-
 
 #image {
     max-width: 500px;
-    display: flex;
     height: 100%;
-    justify-content: center;
+    object-fit: cover;
 }
 
 #title {
     text-transform: uppercase;
     font-size: 30px;
-    padding: 0px 20px;
-}
-
-#genre {
-    display: flex;
-
-}
-
-#genre p {
-    border: 1px solid red;
-    background-color: #ec8fb9;
-    border-radius: 5px;
-    color: white;
+    padding-bottom: 20px;
     font-weight: bold;
-    text-align: center;
-    border: 1px solid black;
-    margin-bottom: 20px;
-    padding: 2px;
-    margin-right: 5px;
 }
 
 #main {
-    padding: 0px 20px;
+    padding: 0px 20px 20px 0px;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+    justify-content: center;
 }
 
-.genre-paragraph {
-    margin: 5px 0px;
-}
-
-#button-link {
-    background-color: transparent;
+#button-link,
+#button {
+    background-color: darkblue;
     border-radius: 5px;
-    color: black;
+    color: white;
     font-weight: bold;
-    padding: 10px 40px;
+    padding: 10px 30px;
     cursor: pointer;
     transition: all 0.2s ease;
     margin-left: 10px;
-    margin-bottom: 20px;
     text-decoration: none;
     text-align: center;
-    border: 1px solid black;
 }
-
-
-
-/* -- BUTTON-- */
 
 #button {
     display: flex;
-    background-color: bisque;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    color: grey;
-    font-weight: bold;
-    padding: 3px 100px;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    background-color: #ff7a22;
     justify-content: center;
-    text-transform: uppercase;
 }
 
 #button:hover {
