@@ -10,7 +10,8 @@ let averageNote = document.getElementById('average-note');
 let filmSynopsis = document.getElementById('synopsis');
 let filmGenre = document.getElementById('genre');
 let backgroundImage = document.getElementById('background-image');
-let youtubeLink = document.getElementById('youtube');
+let youtubePoster = document.getElementById('youtube-poster');
+let youtubeButton = document.getElementById('youtube-button');
 let tableauGenre = [];
 let affichageGenre = ''
 
@@ -65,7 +66,8 @@ const changeFilm = async () => {
   console.log('trailer key is:', trailers[0].key);
 
   image.src = `https://image.tmdb.org/t/p/w500${response.poster_path}`;
-  youtubeLink.href = youtube_link+trailers[0].key;
+  youtubePoster.href = youtube_link+trailers[0].key;
+  youtubeButton.href = youtube_link+trailers[0].key;
   backgroundImage.style = `background-image: url(https://image.tmdb.org/t/p/original${response.backdrop_path})`;
   filmTitle.innerHTML = `<b>${response.title}</b> (${response.release_date.substr(0, 4)})`;
   filmDuration.innerHTML = `<b>Durée</b> : ${response.runtime} min`;

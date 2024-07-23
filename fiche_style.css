@@ -134,14 +134,20 @@ h3 {
 #synopsis {
     line-height: 1.4rem;
     text-align: justify;
+    margin-bottom: 20px;
+}
+
+#buttons-movie {
+    display: flex;
+    gap: 15px;
 }
 
 #button-link {
-    background-color: transparent;
+    background-color: #ec8fb9;
     border-radius: 5px;
     color: white;
     font-weight: bold;
-    padding: 10px 50px;
+    padding: 10px 30px;
     cursor: pointer;
     transition: all 0.2s ease;
     margin: 25px 0px;
@@ -153,11 +159,30 @@ h3 {
 
 #button-link:hover {
     transform: translateY(-2px);
-    background-color: #ec8fb9;
-    color: white;
+    background-color: white;
+    color: #ec8fb9;
 }
 
+#youtube-button {
+    background-color: transparent;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin: 25px 0px;
+    text-decoration: none;
+    text-align: center;
+    border: 1px solid #ec8fb9;
+    width: 50%;
+}
 
+#youtube-button:hover {
+    transform: translateY(-2px);
+    background-color: white;
+    color: #ec8fb9;
+}
 
 /* -- BUTTON-- */
 
@@ -166,13 +191,15 @@ h3 {
     background-color: bisque;
     border-radius: 0px 0px 15px 15px;
     color: white;
+    font-size: 12px;
     padding: 8px 34px;
-    /* font-weight: bold; */
+    text-transform: uppercase;
+    font-weight: bold;
     cursor: pointer;
     transition: all 0.2s ease;
     justify-content: center;
     /* text-transform: uppercase; */
-    background-color: #69123e;
+    background-color: transparent;
     width: 80%;
     text-align: center;
 }
@@ -185,4 +212,10 @@ h3 {
 #button:active {
     transform: translateY(2px);
     background-color: #ec8fb9;
+}
+
+@media (max-width: 700px) {
+    #buttons-movie {
+        flex-wrap: wrap;
+    }
 }
