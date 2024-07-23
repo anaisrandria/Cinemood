@@ -15,8 +15,10 @@ let filmTitle = document.getElementById('title');
 let buttonLink = document.getElementById('button-link');
 let filmYear = document.getElementById('year');
 let filmDuration = document.getElementById('duration');
+let filmReleaseDate = document.getElementById('release-date');
 let filmSynopsis = document.getElementById('synopsis');
 let filmGenre = document.getElementById('genre');
+let backgroundImage = document.getElementById('background-image');
 let tableauGenre = [];
 let affichageGenre = ''
 
@@ -35,7 +37,7 @@ const changeFilm = async () => {
   document.querySelectorAll('.genre-paragraph').forEach(el => el.remove());
 
   let id_film = await getRandomFilm();
-  let requestString = `https://api.themoviedb.org/3/movie/${id_film}?language=en-US`;
+  let requestString = `https://api.themoviedb.org/3/movie/${id_film}?language=fr-FR`;
 
   const options = {
     method: 'GET',
@@ -51,10 +53,11 @@ const changeFilm = async () => {
   console.log(response);
 
   image.src = `https://image.tmdb.org/t/p/w500/${response.poster_path}`;
-  //filmId.textContent = `#${response.id}`;
+  backgroundImage.style = `background-image: url(https://image.tmdb.org/t/p/original${response.backdrop_path})`;
   filmTitle.innerHTML = `<b>${response.title}</b> (${response.release_date.substr(0, 4)})`;
-  filmDuration.innerHTML = `<b>Durée</b> (en min) : ${response.runtime}`;
-  filmSynopsis.innerHTML = `<b>Synopsis</b> (EN) : ${response.overview}`
+  filmDuration.innerHTML = `<b>Durée</b> : ${response.runtime} min`;
+  filmReleaseDate.innerHTML = `<b>Date de sortie</b> : ${response.release_date}`;
+  filmSynopsis.innerHTML = `${response.overview}`;
 
   buttonLink.href = `https://www.themoviedb.org/movie/${response.id}/watch`;
 
