@@ -10,6 +10,7 @@ let averageNote = document.getElementById('average-note');
 let filmSynopsis = document.getElementById('synopsis');
 let filmGenre = document.getElementById('genre');
 let backgroundImage = document.getElementById('background-image');
+let youtubeLink = document.getElementById('youtube');
 let tableauGenre = [];
 let affichageGenre = ''
 
@@ -41,19 +42,38 @@ const changeFilm = async () => {
   };
 
   let data = await fetch(requestString, options);
-
   let response = await data.json();
-  console.log(response);
+  console.log(`response:`, response);
 
-  image.src = `https://image.tmdb.org/t/p/w500/${response.poster_path}`;
+  let dataVideo = await fetch(`https://api.themoviedb.org/3/movie/${id_film}/videos?language=en-US`, options);
+  let responseVideo = await dataVideo.json();
+  console.log(`responseVideo:`, responseVideo);
+  console.log(`responseVideo.results:`, responseVideo.results);
+
+  let trailers = []
+
+  let youtube_link = "https://www.youtube.com/watch?v=";
+
+  responseVideo.results.forEach(video => {
+    if (video.type == 'Trailer') {
+      youtube_link += video.key;
+      trailers.push(video)
+      console.log('Video result is:', video.type, video.key, youtube_link);
+    }
+  })
+  
+  console.log('trailer key is:', trailers[0].key);
+
+  image.src = `https://image.tmdb.org/t/p/w500${response.poster_path}`;
+  youtubeLink.href = youtube_link+trailers[0].key;
   backgroundImage.style = `background-image: url(https://image.tmdb.org/t/p/original${response.backdrop_path})`;
   filmTitle.innerHTML = `<b>${response.title}</b> (${response.release_date.substr(0, 4)})`;
   filmDuration.innerHTML = `<b>Durée</b> : ${response.runtime} min`;
   filmReleaseDate.innerHTML = `<b>Date de sortie</b> : ${response.release_date}`;
   averageNote.innerHTML = `<b>Note :</b> ${response.vote_average.toFixed(1)}/10`;
   filmSynopsis.innerHTML = `${response.overview}`;
-
   buttonLink.href = `https://www.themoviedb.org/movie/${response.id}/watch`;
+
 
   response.genres.forEach(genre => {
     let genreElement = document.createElement('p');
@@ -93,6 +113,7 @@ const FilmDataListByMood = async (pagenbr) => {
   console.log(data)
   let response = await data.json();
   return (response);
+
 }
 
 

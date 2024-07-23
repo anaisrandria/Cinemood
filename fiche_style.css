@@ -55,8 +55,15 @@ body {
     opacity: 1;
 }
 
-#image {
+.left-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 80%;
+}
+
+#image {
+    width: 100%;
     max-width: 400px;
     height: auto;
     display: flex;
@@ -65,7 +72,7 @@ body {
 }
 
 #image:hover {
-    width: 80%;
+    width: 100%;
     border: 2px solid #ec8fb9;
 }
 
@@ -157,8 +164,7 @@ h3 {
 #button {
     display: flex;
     background-color: bisque;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
+    border-radius: 0px 0px 15px 15px;
     color: white;
     padding: 8px 34px;
     /* font-weight: bold; */
