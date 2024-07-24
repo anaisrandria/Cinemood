@@ -1,0 +1,53 @@
+/* --- MENU DEROULANT --- */
+menu li {
+    position: relative;
+    z-index: 2;
+    list-style-type: none;
+}
+
+.change-emotion {
+    display: flex;
+    border-radius: 5px;
+    color: white;
+    padding: 0.3rem 4rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid #ec8fb9;
+    text-align: center;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+    position: relative;
+}
+
+ul li {
+    display: inline-block;
+
+}
+
+ul li a {
+    display: block;
+    color: #FFF;
+    text-decoration: none;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+    overflow: hidden;
+    padding: 5px;
+}
+
+li ul.dropdown {
+    width: 100%;
+    position: absolute;
+    display: none;
+
+
+}
+
+li:hover ul.dropdown {
+    display: block;
+}

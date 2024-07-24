@@ -12,6 +12,8 @@ let filmGenre = document.getElementById('genre');
 let backgroundImage = document.getElementById('background-image');
 let youtubePoster = document.getElementById('youtube-poster');
 let youtubeButton = document.getElementById('youtube-button');
+let mainCast = document.getElementById('main-cast');
+let director = document.getElementById('director');
 let tableauGenre = [];
 let affichageGenre = ''
 
@@ -51,7 +53,33 @@ const changeFilm = async () => {
   console.log(`responseVideo:`, responseVideo);
   console.log(`responseVideo.results:`, responseVideo.results);
 
-  let trailers = []
+  let dataCredits = await fetch(`https://api.themoviedb.org/3/movie/${id_film}/credits?language=en-US`, options);
+  let responseCredits = await dataCredits.json();
+  console.log(`responseCredits:`, responseCredits);
+
+  // Récupérer les acteurs principaux
+
+  let actorsList = [];
+
+  for (let i=0; i <= 3; i++) {
+    console.log("responseCredits is:", responseCredits.cast[i].name);
+    actorsList.push(responseCredits.cast[i].name);
+  }
+
+  // Récupérer les réalisateurs du film
+
+  let directorsList = [];
+
+  for (let i=0; i < responseCredits.crew.length; i++) {
+    if (responseCredits.crew[i].job == 'Director' && responseCredits.crew[i].known_for_department == 'Directing') {
+      directorsList.push(responseCredits.crew[i].name);
+    }
+  }
+  console.log('Total directors:', directorsList);
+
+  // Récupérer le lien du trailer
+
+  let trailers = [];
 
   let youtube_link = "https://www.youtube.com/watch?v=";
 
@@ -72,9 +100,11 @@ const changeFilm = async () => {
   filmTitle.innerHTML = `<b>${response.title}</b> (${response.release_date.substr(0, 4)})`;
   filmDuration.innerHTML = `<b>Durée</b> : ${response.runtime} min`;
   filmReleaseDate.innerHTML = `<b>Date de sortie</b> : ${response.release_date}`;
-  averageNote.innerHTML = `<b>Note :</b> ${response.vote_average.toFixed(1)}/10`;
+  averageNote.innerHTML = `<b>Note</b> : ${response.vote_average.toFixed(1)}/10`;
   filmSynopsis.innerHTML = `${response.overview}`;
   buttonLink.href = `https://www.themoviedb.org/movie/${response.id}/watch`;
+  mainCast.innerHTML = `<b>Avec</b> : ${actorsList.join(`, `)}`;
+  director.innerHTML = `<b>Réalisé par</b> : ${directorsList.join(`, `)}`;
 
 
   response.genres.forEach(genre => {
