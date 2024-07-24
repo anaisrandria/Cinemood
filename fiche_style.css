@@ -76,6 +76,7 @@ body {
     filter: drop-shadow(10px 10px 4px black);
 }
 
+/* Passage de la souris sur l'image */
 #image:hover {
     width: 100%;
     border: 1px solid #ec8fb9;
@@ -165,6 +166,7 @@ h3 {
     width: 50%;
 }
 
+/* Passage de la souris sur le bouton */
 #button-link:hover {
     transform: translateY(-2px);
     background-color: white;
@@ -189,13 +191,14 @@ h3 {
     width: 50%;
 }
 
+/* Passage de la souris sur le bouton */
 #youtube-button:hover {
     transform: translateY(-2px);
     background-color: white;
     color: #ec8fb9;
 }
 
-/* -- BUTTON-- */
+/* -- BUTTON CHANGER DE FILM -- */
 
 #button {
     display: flex;
@@ -217,6 +220,7 @@ h3 {
     filter: drop-shadow(10px 10px 4px black);
 }
 
+/* Passage de la souris sur le bouton */
 #button:hover {
     transform: translateY(-2px);
     background-color: white;

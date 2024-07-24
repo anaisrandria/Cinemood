@@ -1,3 +1,5 @@
+// INITIALISATION VARIABLES INTERACTION AVEC LE DOM
+
 let button = document.getElementById('button');
 let image = document.getElementById('image');
 let filmId = document.getElementById('filmid');
@@ -17,6 +19,9 @@ let director = document.getElementById('director');
 let tableauGenre = [];
 let affichageGenre = ''
 
+
+// TABLEAU DE PARAMETRAGE (PAR EXCLUSION) DES GENRES PAR MOOD
+
 let moodObject = {
   "happy": [80, 99, 18, 36, 27, 10770, 53, 10752, 37],
   "sad": [28, 80, 99, 10751, 14, 36, 27, 10402, 9648, 10770, 53, 10752, 37],
@@ -27,7 +32,7 @@ let moodObject = {
   "surpise-me": [10770]
 }
 
-// Fonction principale 
+// FONCTION PRINCIPALE - CHANGEMENT DE  FILM RANDOM 
 
 const changeFilm = async () => {
 
@@ -43,6 +48,8 @@ const changeFilm = async () => {
       Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5OWJhZTE2YjkwZWMxYzk0ZDYwZWY4YTE1M2NiODY2MyIsIm5iZiI6MTcyMTA1MTk4OS4yMTkyMzYsInN1YiI6IjY2OTUyYTVmZTkyYWI0ZDMyMGJhY2FkYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.-nZFMjmWuNpcTBkHSgnKCrePtpiRctjIFaUQ5nIR9XY'
     }
   };
+
+  // Récupération des infos par film via l'API 
 
   let data = await fetch(requestString, options);
   let response = await data.json();
@@ -80,7 +87,6 @@ const changeFilm = async () => {
   // Récupérer le lien du trailer
 
   let trailers = [];
-
   let youtube_link = "https://www.youtube.com/watch?v=";
 
   responseVideo.results.forEach(video => {
@@ -91,8 +97,18 @@ const changeFilm = async () => {
     }
   })
   
-  console.log('trailer key is:', trailers[0].key);
+  // Affichage des genres avec création dynamique des paragraphes
 
+    response.genres.forEach(genre => {
+      let genreElement = document.createElement('p');
+      genreElement.textContent = genre.name;
+      genreElement.classList.add('genre-paragraph');
+      filmGenre.appendChild(genreElement);
+    })
+
+
+  // Envoi dynamique des infos au DOM
+  
   image.src = `https://image.tmdb.org/t/p/w500${response.poster_path}`;
   youtubePoster.href = youtube_link+trailers[0].key;
   youtubeButton.href = youtube_link+trailers[0].key;
@@ -106,17 +122,9 @@ const changeFilm = async () => {
   mainCast.innerHTML = `<b>Avec</b> : ${actorsList.join(`, `)}`;
   director.innerHTML = `<b>Réalisé par</b> : ${directorsList.join(`, `)}`;
 
-
-  response.genres.forEach(genre => {
-    let genreElement = document.createElement('p');
-    genreElement.textContent = genre.name;
-    genreElement.classList.add('genre-paragraph');
-    filmGenre.appendChild(genreElement);
-  })
-
 }
 
-// Filtre les résultats par genre en fonction du mood
+// FONCTION SECONDAIRE - FILTRE LES RESULTATS PAR GENRE EN FONCTION DU MOOD
 
 const FilmDataListByMood = async (pagenbr) => {
   let mood = window.location.search.replace("?", "");
@@ -149,7 +157,7 @@ const FilmDataListByMood = async (pagenbr) => {
 }
 
 
-// Fonction random sur le nombre de pages de résultats, limité à 500 pages
+// FONCTION SECONDAIRE - Random sur le nombre de pages de résultats, limité à 500 pages
 
 const getRandomFilm = async () => {
   let randnbr = 101;
@@ -167,7 +175,9 @@ const getRandomFilm = async () => {
   return (responseListPage.results[randnbrFilm].id);
 }
 
+// CHARGEMENT D'UNE PAGE AVEC INFOS AU PREMIER CHARGEMENT
 changeFilm();
 
+// LANCEMENT DE LA FONCTION CHANGEFILM() AU CLIC
 button.addEventListener('click', changeFilm);
 
