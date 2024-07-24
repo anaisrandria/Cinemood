@@ -10,7 +10,7 @@ menu li {
 .change-emotion {
     display: flex;
     border-radius: 40px;
-    width: 40vh;
+    width: 50vh;
     color: black;
     padding: 1rem ;
     cursor: pointer;

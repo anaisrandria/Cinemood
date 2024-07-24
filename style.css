@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Poppins, sans-serif;
     /* background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%); */
     background-color: rgba(0, 0, 0, 0.5);
     background-image: url(/images/bg-home-2.png);
@@ -16,18 +18,19 @@ header {
     align-items: center;
     flex-direction: column;
     line-height: 5px;
-    background-color: rgba(255, 255, 255, 0.6);
+    background-color: rgba(218, 187, 203, 0.9);
     width: 50rem;
-
+    border-radius: 20px 0px 20px 0px;
 }
 
 h1 span {
-    color: rgb(102, 0, 255);
+    color: rgb(173, 73, 73);
 }
 
 main {
-    margin-top: 30px;
-    margin-bottom: 350px;
+    /* margin-top: 30px; */
+    /* margin-bottom: 350px; */
+    margin: 50px;
     max-width: 100%;
     display: flex;
     justify-content: space-around;
@@ -35,12 +38,22 @@ main {
     width: 50rem;
 }
 
+#randomname {
+    padding: 30px 30px 10px 30px;
+}
+
 .button-mood {
-    background-color: bisque;
-    border: 1px solid grey;
+    /* background-color: bisque; */
+    /* border: 1px solid pink; */
     border-radius: 20px;
     cursor: pointer;
-    padding: 0.5rem 1.6rem;
-    font-size: 2rem;
+    padding: 1rem;
+    font-size: 40px;
     margin: 10px;
+    text-decoration: none;
+    filter: drop-shadow(5px 5px 4px rgb(173, 73, 73));
+}
+
+.button-mood:hover {
+   font-size: 45px;
 }

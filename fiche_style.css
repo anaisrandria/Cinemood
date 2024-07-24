@@ -211,7 +211,7 @@ h3 {
     transition: all 0.2s ease;
     justify-content: center;
     font-family: Poppins, sans-serif;
-    background-color: transparent;
+    background-color: black;
     width: 80%;
     text-align: center;
     filter: drop-shadow(10px 10px 4px black);
@@ -221,6 +221,7 @@ h3 {
     transform: translateY(-2px);
     background-color: white;
     color: #ec8fb9;
+    border: 1px solid white;
     text-decoration: none;
 }
 
