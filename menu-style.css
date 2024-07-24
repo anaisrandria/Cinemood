@@ -12,21 +12,21 @@ menu li {
     border-radius: 40px;
     width: 40vh;
     color: black;
-    padding: 1rem;
+    padding: 1rem ;
     cursor: pointer;
     transition: all 0.2s ease;
     justify-content: center;
     background-color: white;
-    opacity: 0.4;
+    opacity: 0.5;
     border: 1px solid white;
-    letter-spacing: 1px;
+    letter-spacing: 0.8px;
     font-size: 20px;
     font-family: Poppins, sans-serif;
     text-align: center;
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
-    
+    filter: drop-shadow(5px 5px 4px black);
 }
 
 .change-emotion:hover {
@@ -54,6 +54,7 @@ ul li a {
     font-size: 20px;
     overflow: hidden;
     padding: 10px;
+    filter: drop-shadow(5px 5px 4px black);
 }
 
 li ul.dropdown {
