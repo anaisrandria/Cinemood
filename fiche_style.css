@@ -58,14 +58,6 @@ body {
     width: 80%;
 }
 
-#button.left-wrapper {
-    border-top: 1px solid #ec8fb9;
-    border-bottom: 1px solid #ec8fb9;
-    border-left: 1px solid #ec8fb9;
-    border-right: 1px solid #ec8fb9;
-    text-decoration: none;
-}
-
 #image {
     width: 100%;
     max-width: 400px;
@@ -80,6 +72,8 @@ body {
 #image:hover {
     width: 100%;
     border: 1px solid #ec8fb9;
+    border-radius: 15px;
+
 }
 
 #content-wrapper {
@@ -202,7 +196,7 @@ h3 {
 
 #button {
     display: flex;
-    background-color: bisque;
+    background-color: transparent;
     border-radius: 0px 0px 15px 15px;
     color: white;
     font-size: 12px;
@@ -214,7 +208,6 @@ h3 {
     transition: all 0.2s ease;
     justify-content: center;
     font-family: Poppins, sans-serif;
-    background-color: black;
     width: 80%;
     text-align: center;
     filter: drop-shadow(10px 10px 4px black);
@@ -223,9 +216,9 @@ h3 {
 /* Passage de la souris sur le bouton */
 #button:hover {
     transform: translateY(-2px);
-    background-color: white;
-    color: #ec8fb9;
-    border: 1px solid white;
+    background-color: #ec8fb9;
+    color: white;
+    border: 1px solid #ec8fb9;
     text-decoration: none;
 }
 
