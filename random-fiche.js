@@ -16,7 +16,7 @@ export const fetchRandomMovie = async () => {
         let randomNumb = Math.floor(Math.random() * (maxResult - minResult + 1)) + minResult;
         // let response = await axios.get(BASE_URL + 'discover/movie?api_key=' + API_KEY + '&with_genres=' + genreId + '&sort_by=top-rated.desc&page='+ randomNumb);
         // console.log(response.data.url);
-
+        
         let randomNumb2 = Math.floor(Math.random() * 20);
         let response = await fetch(BASE_URL + 'discover/movie?api_key=' + API_KEY + '&with_genres=' + genreId + '&sort_by=top-rated.desc&page=' + randomNumb);
         let data = await response.json();
