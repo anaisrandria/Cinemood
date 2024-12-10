@@ -17,7 +17,8 @@ Construction d’une application web permettant de visualiser des recommandation
     
 ## Objectifs pédagogiques : 
 - Découvrir le traitement de données en temps réel
-- Explorer des possibilités d’animation web
+- Appliquer l’asynchrone
+- Appréhender les problématiques de retraitement des données
 - Découper le projet en tâches
 - Maîtriser les commandes de base git
 - Trouver un mode de travail en groupe qui permette de mobiliser toutes les membres de l’équipe
