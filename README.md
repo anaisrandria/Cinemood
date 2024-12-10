@@ -2,7 +2,7 @@
 
 
 ## À propos :
-Construction d’une application web permettant de visualiser des recommandations de films selon le mood de l’utilisateur via des appels API à la base de films de TMDB.
+Construction d’une application web permettant de visualiser des recommandations de films selon le mood de l’utilisateur via des appels API à la base de données de TMDB.
 
 ## Caractéristiques :
 - État du projet : Terminé / Prototype
